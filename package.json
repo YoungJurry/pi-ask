@@ -1,0 +1,68 @@
+{
+  "name": "@youngjurry/pi-ask",
+  "version": "0.1.0",
+  "description": "Interactive single- and multi-question ask tool for the Pi coding agent",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "pi-coding-agent",
+    "pi-extension",
+    "agent",
+    "ask",
+    "question",
+    "interactive"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "author": {
+    "name": "youngjurry"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smithyyang/pi-ask.git"
+  },
+  "homepage": "https://github.com/smithyyang/pi-ask",
+  "scripts": {
+    "check": "node --input-type=module -e \"await import('./ask.ts')\"",
+    "prepublishOnly": "npm run check"
+  },
+  "files": [
+    "ask.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "extensions": [
+      "./ask.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*",
+    "typebox": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-ai": {
+      "optional": true
+    },
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    },
+    "@earendil-works/pi-tui": {
+      "optional": true
+    },
+    "typebox": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "^0.83.0",
+    "@earendil-works/pi-coding-agent": "^0.83.0",
+    "@earendil-works/pi-tui": "^0.83.0",
+    "typebox": "1.3.7"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
