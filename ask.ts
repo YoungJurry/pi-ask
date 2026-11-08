@@ -73,11 +73,13 @@ export default function ask(pi: ExtensionAPI) {
 	pi.registerTool({
 		name: "ask",
 		label: "Ask",
+		// Deferred: not declared until `tool_search` loads it, so a session that
+		// never asks a question pays nothing for it. The description is the BM25
+		// document the search ranks, so it carries the words a query would use.
+		exposure: "deferred",
 		description:
-			"Ask the user one or more questions with selectable options and optional freeform input. " +
-			"For each question, provide prompt and options; question id/label and option value/description are optional. " +
-			"Omitted question ids are generated as q1, q2, etc.; omitted option values default to their labels. " +
-			"Users toggle options with Space and confirm with Enter.",
+			"Ask the user one or more questions with selectable options and optional freeform input. Use when a decision, preference, or missing detail needs the user's answer instead of a guess. " +
+			"Keywords: ask, question, clarify, confirm, choose, select, pick, options, prompt, user input, decision.",
 
 		parameters: AskParams,
 
